@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  key-management-service:
+    build: ./key-management-service
+    ports:
+      - "9001:9001"
+    environment:
+      - KMS_URL=${KMS_URL}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  threshold-decryption-service:
+    build: ./threshold-decryption-service
+    ports:
+      - "9002:9002"
+    environment:
+      - KMS_URL=${KMS_URL}
+    depends_on:
+      - key-management-service
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  gateway-service:
+    build: ./gateway-service
+    ports:
+      - "9000:9000"
+    environment:
+      - KMS_URL=${KMS_URL}
+    depends_on:
+      - threshold-decryption-service
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
