@@ -121,7 +121,7 @@ Response from decrypt endpoint: {"decrypted_message":"decrypted message goes her
 
 ## Further Improvements
 
-1. Implement HTTPS for secure communication.
+1. Implement HTTPS for secure communication, think of HTTP/2 such as gRPC, protocol buffers for service to service communication. 
 2. Enhance error handling and logging.
 3. Introduce request IDs for better traceability.
 4. Refactor for asynchronous processing.
