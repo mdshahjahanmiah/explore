@@ -129,13 +129,3 @@ Response from decrypt endpoint: {"decrypted_message":"decrypted message goes her
 6. Add robust security measures and improved logging and monitoring.
 
 
-## What Went Well and What Didn't
-
-### What Went Well
-- Successfully implemented the threshold decryption service with public key retrieval, and partial decryption.
-- Coordinated interactions between the Key Management Service, Decryption Service, and Gateway Service effectively.
-
-### Challenges
-- Setting up the PBC library locally and in the Docker environment was challenging. It required careful configuration and troubleshooting to ensure compatibility with all dependencies and correct installation paths.
-
-
