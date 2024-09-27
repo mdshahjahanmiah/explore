@@ -23,7 +23,6 @@ A simple microservice architecture using Go for a threshold decryption service.
    ```sh
    docker-compose down
    docker-compose up --build
-
    ```
 ** Success Scenario: When Docker builds and starts up successfully, you should see logs similar to:**
    ```sh
